@@ -22,6 +22,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ListboxModule } from 'primeng/listbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DrawerModule } from 'primeng/drawer';
+import { LoginComponent } from './Components/login/login.component';
 
 
 
@@ -29,7 +30,13 @@ import { DrawerModule } from 'primeng/drawer';
 
 @Component({
   selector: 'app-root',
-  imports: [ButtonModule, SelectButtonModule, RadioButtonModule, MultiSelect, ListboxModule, FloatLabelModule, DatePickerModule, CheckboxModule, AvatarModule,CardModule, TableModule, AvatarGroupModule, MenuModule, ToastModule, InputTextModule, MultiSelectModule, FormsModule, SelectModule, TagModule, NgClass, IconFieldModule, InputIconModule, DrawerModule],
+  imports: [ButtonModule,
+    LoginComponent,
+    SelectButtonModule, RadioButtonModule, MultiSelect,
+    ListboxModule, FloatLabelModule, DatePickerModule, CheckboxModule,
+     AvatarModule,CardModule, TableModule, AvatarGroupModule, MenuModule, ToastModule, 
+     InputTextModule, MultiSelectModule, FormsModule, SelectModule, TagModule, NgClass, IconFieldModule,
+      InputIconModule, DrawerModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
