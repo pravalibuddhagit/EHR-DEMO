@@ -1,0 +1,113 @@
+
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600; /* Reduced from 700 for a softer look */
+    font-size: 2.0rem; /* Medium size for better readability */
+    color: #2c3e50; /* Dark gray-blue for a professional look */
+}
+
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+ 
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduce space between checkbox and label */
+    margin: 0; /* Remove extra margins */
+}
+
+.form-check-input {
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Remove any extra margin */
+}
+
+.form-check-label {
+    margin: 0; /* Remove any extra margin */
+    font-size: 14px; /* Adjust label size if needed */
+}
+  
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  small.text-danger {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 5px;
+  }
+.notes-container {
+    display: flex;
+    align-items: center; /* Align label and textarea */
+    gap: 15px; 
+    margin-bottom: 15px;
+    /* Adjust spacing between label and textarea */
+}
+
+.notes-container label {
+    white-space: nowrap; /* Prevents label from wrapping */
+    margin-right: 10px; /* Moves label to the left */
+}
+
+.notes-container textarea {
+    flex-grow: 1;
+    min-height: 100px;
+    resize: vertical;
+    width: 100%;
+    border: 1px solid black; /* Change border color to black */
+    padding: 10px; /* Add padding for better appearance */
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+  /* Add space below Gender dropdown */
+.gender-container {
+    margin-bottom: 10px; 
+    margin-top: 10px;/* Adjust as needed */
+}
+
+/* Add space between checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Adjust spacing between checkboxes */
+    margin-bottom: 15px;
+}
+.drop-container{
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
