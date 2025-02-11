@@ -1,144 +1,146 @@
+/* Global Styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "primeicons/primeicons.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
-@import "../public/css/root.scss";
-@import "../public/css/alerts";
-@import "../public/css/colors";
-@import "../public/css/focus";
-// @import "../public/css/avatar";
-@import "../public/css/buttons";
-@import "../public/css/smooth-scrollbar";
-@import "../public/css/checkbox_radio";
-@import "../public/css/customfile_upload";
-@import "../public/css/headings";
-@import "../public/css/input";
-@import "../public/css/list";
-@import "../public/css/ng-select";
-@import "../public/css/select";
-@import "../public/css/tables";
-@import "../public/css/tabs";
-@import "../public/css/tag";
-@import "../public/css/animation";
-@import "../public/css/zindex";
-
-
-
-html {
-    height: 100%;
-}
-
+/* Custom Styles */
 body {
-    // @apply text-body;
-    min-height: 100vh;
-    height: 1px;
-    font-size: var(--font-size-base);
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    align-items: center;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7fafc; /* Tailwind background color */
+  color: #2d3748; /* Tailwind text color */
 }
 
-@layer base {
-    th {
-        white-space: nowrap;
-    }
+/* Form Container */
+form {
+  max-width: 600px;
+  justify-content: center;
 
-    // ^ FONT SIZES START
-    .fs-2xs {
-        font-size: 0.5rem; // 8px
-    }
-
-    .fs-xs {
-        font-size: 0.625rem; // 10px
-    }
-
-    .fs-sm,
-    small {
-        font-size: 0.75rem;
-        /* 12px */
-        line-height: 1rem;
-        /* 16px */
-    }
-
-    .fs-base {
-        font-size: 0.8125rem;
-        /* 13px */
-        line-height: 1.25rem;
-        /* 20px */
-    }
-
-    .fs-md {
-        font-size: 0.9375rem;
-        /* 15px */
-        line-height: 1.5rem;
-        /* 24px */
-    }
-
-    .fs-lg {
-        font-size: 1.125rem;
-        /* 18px */
-        line-height: 1.75rem;
-        /* 28px */
-    }
-
-    .fs-xl {
-        font-size: 1.25rem;
-        /* 20px */
-        line-height: 1.75rem;
-        /* 28px */
-    }
-
-    .fs-2xl {
-        font-size: 1.375rem;
-        /* 22px */
-    }
-
-    .fs-3xl {
-        font-size: 1.5rem;
-        /* 24px */
-        line-height: 2rem;
-        /* 32px */
-    }
-
-    .fs-4xl {
-        font-size: 1.625rem;
-        /* 26px */
-    }
-
-    .fs-5xl {
-        font-size: 1.875rem;
-        /* 30px */
-        line-height: 2.25rem;
-        /* 36px */
-    }
-
-    .fs-6xl {
-        font-size: 2.25rem;
-        /* 36px */
-        line-height: 2.5rem;
-        /* 40px */
-    }
-
-    // ^ FONT SIZES END
+  margin: 0 auto;
+  padding: 2rem;
+//   background-color: #ffffff;
+  border-radius: 0.75rem; /* rounded-lg */
+//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* shadow-xl */
 }
 
-.card 
-{
-    background: #FFFFFF;
-    border: 1px solid #dfe7ef;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0px 4px 30px rgba(221, 224, 255, .54);
-    border-radius: 12px;
+form .space-y-6 {
+  margin-bottom: 1.5rem;
 }
 
+form p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b6cb0; /* Tailwind blue-600 */
+}
 
-.field 
-{
+/* Label Styles */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568; /* Tailwind text-gray-700 */
+  margin-bottom: 0.5rem;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0; /* Tailwind gray-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #3182ce; /* Tailwind blue-500 */
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* Tailwind blue-400 */
+}
+
+/* Error Message Styles */
+small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #e53e3e; /* Tailwind red-500 */
+  font-size: 0.875rem;
+}
+
+small div {
+  margin-bottom: 0.25rem;
+}
+
+/* Button Styles */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #3182ce; /* Tailwind blue-500 */
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.375rem; /* rounded-md */
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #2b6cb0; /* Tailwind blue-600 */
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:disabled {
+  background-color: #edf2f7; /* Tailwind gray-100 */
+  cursor: not-allowed;
+}
+
+/* Link Styles */
+a {
+  color: #3182ce; /* Tailwind blue-500 */
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #2b6cb0; /* Tailwind blue-600 */
+}
+
+/* Small Devices */
+@media (max-width: 640px) {
+  form {
+    padding: 1rem;
+  }
+
+  form .space-y-6 {
     margin-bottom: 1rem;
+  }
+
+  form p {
+    font-size: 1.25rem;
+  }
+
+  button[type="submit"] {
+    padding: 0.75rem;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center;     /* Vertically centers the content */
+}
+
+app-root {
+    width: 100%; /* Ensure app-root takes up full width */
+  max-width: 1200px; /* Optional: Limit maximum width */
+  padding: 20px; /* Optional: Add some padding */
+}
+
+p-card {
+ 
+  margin: 0 auto; /* Centers the card */
 }

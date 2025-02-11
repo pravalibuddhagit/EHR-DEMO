@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
@@ -6,6 +6,10 @@ import Aura from '@primeng/themes/aura';
 import { definePreset } from "@primeng/themes";
 
 import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
 
 const MyPreset = definePreset(Aura, {
   primitive: {
@@ -667,6 +671,11 @@ const MyPreset = definePreset(Aura, {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+        provideHttpClient(),
+    provideAnimations(),
+    // MessageService,          // ✅ PrimeNG service for notifications
+    provideHttpClient(),
+    importProvidersFrom(ToastModule),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),

@@ -1,1 +1,112 @@
-<p>register works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+  <div class="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-xl">
+    <div class="space-y-6">
+      <p class="text-2xl font-semibold text-center mb-6">Register</p>
+
+      <!-- First Name -->
+      <div class="space-y-2">
+        <label for="firstName" class="block text-sm font-semibold text-gray-700">First Name</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="firstName"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          name="firstName"
+          placeholder="Enter your first name"
+        />
+        <small *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-sm text-red-500 mt-1">
+          <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+          <div *ngIf="firstName.errors?.['pattern']">First name should start with alphabets only.</div>
+          <div *ngIf="firstName.errors?.['maxlength']">First name cannot exceed 35 characters.</div>
+        </small>
+      </div>
+
+      <!-- Last Name -->
+      <div class="space-y-2">
+        <label for="lastName" class="block text-sm font-semibold text-gray-700">Last Name</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="lastName"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          name="lastName"
+          placeholder="Enter your last name"
+        />
+        <small *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-sm text-red-500 mt-1">
+          <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+          <div *ngIf="lastName.errors?.['pattern']">Last name should start with alphabets only.</div>
+          <div *ngIf="lastName.errors?.['maxlength']">Last name cannot exceed 35 characters.</div>
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div class="space-y-2">
+        <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
+        <input
+          type="email"
+          pInputText
+          formControlName="email"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          name="email"
+          placeholder="Enter your email"
+        />
+        <small *ngIf="email.invalid && (email.dirty || email.touched)" class="text-sm text-red-500 mt-1">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="space-y-2">
+        <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+        <input
+          type="password"
+          pInputText
+          formControlName="password"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          name="password"
+          placeholder="Enter your password"
+        />
+        <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-sm text-red-500 mt-1">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+          <div *ngIf="password.errors?.['pattern']">Password must have at least one uppercase letter, one number, and one special character (max length 8).</div>
+        </small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="space-y-2">
+        <label for="confirmPassword" class="block text-sm font-semibold text-gray-700">Confirm Password</label>
+        <input
+          type="password"
+          pInputText
+          formControlName="confirmPassword"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+        />
+        <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="text-sm text-red-500 mt-1">
+          <div *ngIf="confirmPassword.errors?.['required']">Confirm your password.</div>
+        </small>
+        <small *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid" class="text-sm text-red-500 mt-1">
+          Passwords do not match.
+        </small>
+      </div>
+
+      <!-- Register Button -->
+      <div>
+        <button
+          type="submit"
+          class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:bg-gray-400"
+          [disabled]="registerForm.invalid"
+        >
+          Register
+        </button>
+      </div>
+
+      <!-- Login Link -->
+      <div class="mt-4 text-center text-sm">
+        Already a member? <a routerLink="/login" class="text-blue-500 hover:text-blue-600">Login</a>
+      </div>
+    </div>
+  </div>
+</form>
