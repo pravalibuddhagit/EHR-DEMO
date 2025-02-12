@@ -29,9 +29,7 @@ import { MessageModule } from 'primeng/message';
     FieldsetModule,
     MessageModule
   ],
-  providers: [MessageService] ,// <-- Add MessageService here
-  
-
+  providers: [MessageService], // <-- Add MessageService here
 })
 export class RegisterComponent {
   registerForm;
@@ -43,29 +41,60 @@ export class RegisterComponent {
     private router: Router
   ) {
     // Initialize the registerForm inside the constructor
-    this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/), Validators.maxLength(35)]],
-      lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/), Validators.maxLength(35)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) // Password: at least 1 uppercase, 1 number, 1 special character, max length 8
-      ]],
-      confirmPassword: ['', Validators.required]
-    }, {
-      validators: passwordMatchValidator
-    });
+    this.registerForm = this.fb.group(
+      {
+        firstName: [
+          '',
+          [Validators.required, Validators.pattern(/^[a-zA-Z]+$/), Validators.maxLength(35)],
+        ],
+        lastName: [
+          '',
+          [Validators.required, Validators.pattern(/^[a-zA-Z]+$/), Validators.maxLength(35)],
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(
+              /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+            ), // Password: at least 1 uppercase, 1 number, 1 special character, max length 8
+          ],
+        ],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: passwordMatchValidator,
+      }
+    );
   }
 
-  get firstName() { return this.registerForm.controls['firstName']; }
-  get lastName() { return this.registerForm.controls['lastName']; }
-  get email() { return this.registerForm.controls['email']; }
-  get password() { return this.registerForm.controls['password']; }
-  get confirmPassword() { return this.registerForm.controls['confirmPassword']; }
+  // Accessors for form controls
+  get firstName() {
+    return this.registerForm.controls['firstName'];
+  }
+  get lastName() {
+    return this.registerForm.controls['lastName'];
+  }
+  get email() {
+    return this.registerForm.controls['email'];
+  }
+  get password() {
+    return this.registerForm.controls['password'];
+  }
+  get confirmPassword() {
+    return this.registerForm.controls['confirmPassword'];
+  }
 
   submitDetails() {
     if (this.registerForm.invalid) {
       console.log('Form is invalid:', this.registerForm.value);
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Form Validation Error',
+        detail: 'Please correct the errors in the form.',
+        life: 3000,
+      });
       return;
     }
 
@@ -81,7 +110,7 @@ export class RegisterComponent {
           severity: 'success',
           summary: 'Registration Successful!',
           detail: 'You have successfully registered.',
-          life: 3000
+          life: 3000,
         });
         setTimeout(() => this.router.navigate(['login']), 3000);
       },
@@ -91,7 +120,7 @@ export class RegisterComponent {
           severity: 'error',
           summary: 'Registration Failed!',
           detail: error.error?.message || 'Something went wrong.',
-          life: 3000
+          life: 3000,
         });
       }
     );
