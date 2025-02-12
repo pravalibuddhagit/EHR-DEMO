@@ -2,8 +2,12 @@
 @use "tailwindcss/components";
 @use "tailwindcss/utilities";
 
+@import "primeicons/primeicons.css";
+
+
 @use "../public/css/root.scss";
 @use "../public/css/alerts";
 @use "../public/css/colors";
 @use "../public/css/focus";
 @use "../public/css/buttons";
+
