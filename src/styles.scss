@@ -1,7 +1,7 @@
 /* Global Styles */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@use 'tailwindcss/base' as *;
+@use 'tailwindcss/components' as *;
+@use 'tailwindcss/utilities' as *;
 
 /* Custom Styles */
 body {
@@ -13,7 +13,7 @@ body {
 
 /* Form Container */
 form {
-  max-width: 600px;
+  max-width: 500px;
   justify-content: center;
 
   margin: 0 auto;
@@ -91,7 +91,7 @@ button[type="submit"]:hover {
 }
 
 button[type="submit"]:disabled {
-  background-color: #edf2f7; /* Tailwind gray-100 */
+  background-color: #79bafa; /* Tailwind gray-100 */
   cursor: not-allowed;
 }
 
@@ -105,24 +105,6 @@ a:hover {
   color: #2b6cb0; /* Tailwind blue-600 */
 }
 
-/* Small Devices */
-@media (max-width: 640px) {
-  form {
-    padding: 1rem;
-  }
-
-  form .space-y-6 {
-    margin-bottom: 1rem;
-  }
-
-  form p {
-    font-size: 1.25rem;
-  }
-
-  button[type="submit"] {
-    padding: 0.75rem;
-  }
-}
 
 html,
 body {
@@ -132,6 +114,7 @@ body {
   width: 100%;
   justify-content: center; /* Horizontally centers the content */
   align-items: center;     /* Vertically centers the content */
+
 }
 
 app-root {
@@ -141,6 +124,7 @@ app-root {
 }
 
 p-card {
- 
+  width: 100%; /* Make the card take full width of its container */
+  max-width: 400px; /* Optional: Limit the card width */
   margin: 0 auto; /* Centers the card */
 }

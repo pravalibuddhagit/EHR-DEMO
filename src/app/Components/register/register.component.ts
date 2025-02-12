@@ -10,12 +10,14 @@ import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { FieldsetModule } from 'primeng/fieldset';
+import { MessageModule } from 'primeng/message';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.scss'],
   imports: [
     ReactiveFormsModule,
     InputTextModule,
@@ -23,8 +25,13 @@ import { AuthService } from '../../services/auth.service';
     ToastModule,
     CardModule,
     RouterModule,
-    NgIf
-  ]
+    NgIf,
+    FieldsetModule,
+    MessageModule
+  ],
+  providers: [MessageService] ,// <-- Add MessageService here
+  
+
 })
 export class RegisterComponent {
   registerForm;
@@ -57,18 +64,35 @@ export class RegisterComponent {
   get confirmPassword() { return this.registerForm.controls['confirmPassword']; }
 
   submitDetails() {
-    if (this.registerForm.invalid) return;
+    if (this.registerForm.invalid) {
+      console.log('Form is invalid:', this.registerForm.value);
+      return;
+    }
+
+    console.log('Submitting form...', this.registerForm.value);
 
     const postData = { ...this.registerForm.value };
     delete postData.confirmPassword; // Remove confirmPassword before sending
 
     this.authService.registerUser(postData as User).subscribe(
       () => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Registered successfully' });
-        this.router.navigate(['login']);
+        console.log('Registration successful');
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Registration Successful!',
+          detail: 'You have successfully registered.',
+          life: 3000
+        });
+        setTimeout(() => this.router.navigate(['login']), 3000);
       },
-      () => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      (error) => {
+        console.error('Registration failed:', error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Registration Failed!',
+          detail: error.error?.message || 'Something went wrong.',
+          life: 3000
+        });
       }
     );
   }
