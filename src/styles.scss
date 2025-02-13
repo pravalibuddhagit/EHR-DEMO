@@ -2,7 +2,6 @@
 @use "tailwindcss/components";
 @use "tailwindcss/utilities";
 
-@import "primeicons/primeicons.css";
 
 
 @use "../public/css/root.scss";
@@ -11,3 +10,4 @@
 @use "../public/css/focus";
 @use "../public/css/buttons";
 
+@import "primeicons/primeicons.css";

@@ -15,5 +15,6 @@ export class WelcomeComponent {
 
   goToUserCreation() {
     this.router.navigate(['/user-creation']);
+
   }
 }

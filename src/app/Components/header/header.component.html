@@ -1,10 +1,10 @@
-<header class="bg-blue-900 shadow-md fixed top-0 left-0 w-full z-50 h-20 md:h-24 flex items-center">
-  <nav class="container mx-auto flex items-center justify-between px-6 py-4 md:py-6">
+<header class="bg-blue-900 shadow-md fixed top-0 left-0 w-full z-50 h-14 md:h-16 flex items-center">
+  <nav class="container mx-auto flex items-center justify-between px-12 py-2 md:py-3">
     
     <!-- Logo & Branding -->
-    <div class="flex items-center">
-      <img src="../../../../images/favicon.png" alt="EHR Logo" class="h-20 w-auto mr-4">
-      <a class="text-white text-xl font-bold flex items-center" routerLink="/">
+    <div class="flex items-center pl-4">
+      <img src="../../../../images/favicon.png" alt="EHR Logo" class="h-12 w-auto mr-4">
+      <a class="text-white text-lg font-bold flex items-center" routerLink="/">
         EDVAK-EHR
       </a>
     </div>
@@ -14,17 +14,19 @@
       <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navigation Links -->
-    <ul class="hidden md:flex space-x-8 text-white font-semibold text-lg ml-10">
-      <li><a class="nga-nav-link px-4 py-2 text-xl" routerLink="/">Features</a></li>
-      <li><a class="nga-nav-link px-4 py-2 text-xl" routerLink="/about">About</a></li>
-      <li><a class="nga-nav-link px-4 py-2 text-xl" routerLink="/contact">Contact</a></li>
-    </ul>
+    <!-- Navigation Links (Moved Slightly Left) -->
+    <div class="pr-8">
+      <ul class="hidden md:flex gap-6 text-white font-semibold text-lg ml-auto">
+        <li><a class="nga-nav-link px-3 py-1" routerLink="/">Features</a></li>
+        <li><a class="nga-nav-link px-3 py-1" routerLink="/about">About</a></li>
+        <li><a class="nga-nav-link px-3 py-1" routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
     
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="md:hidden bg-blue-800 p-4 space-y-2 text-center text-white" *ngIf="isMenuOpen">
+  <div class="md:hidden bg-blue-800 px-6 py-2 space-y-2 text-center text-white" *ngIf="isMenuOpen">
     <a class="block py-2 nga-nav-link" routerLink="/">Features</a>
     <a class="block py-2 nga-nav-link" routerLink="/about">About</a>
     <a class="block py-2 nga-nav-link" routerLink="/contact">Contact</a>
