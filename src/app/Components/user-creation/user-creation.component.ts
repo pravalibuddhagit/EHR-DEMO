@@ -36,6 +36,8 @@ export class UserCreationComponent implements OnInit{
       email: ['', [Validators.required, Validators.email]],
       mobile_phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       address_line_1: ['', [Validators.required, Validators.maxLength(40)]],
+
+      
       address_line_2: ['',[Validators.required, Validators.maxLength(40)]],
       city: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
       state: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
