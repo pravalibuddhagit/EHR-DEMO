@@ -1,0 +1,38 @@
+<!-- Navbar Component (Already Developed, Just Use It)
+<app-header></app-header> -->
+
+<!-- Welcome Section -->
+<div class="container mx-auto flex flex-col md:flex-row items-center justify-between min-h-screen bg-gray-50 px-20 lg:px-48 gap-12">
+  
+  <!-- Left Section: Text Content (More Space from Left Border) -->
+  <div class="md:w-1/2 space-y-6 text-left border-l-4 border-blue-600 pl-10 ml-4">
+    <h1 class="text-5xl font-bold text-gray-900">EHR System</h1>
+    <p class="text-lg text-gray-600 leading-relaxed">
+      A modern, secure, and user-friendly Electronic Health Records (EHR) system designed 
+      to enhance healthcare management. Our platform ensures efficient storage, 
+      access, and analysis of patient data while maintaining compliance with 
+      healthcare regulations.
+    </p>
+
+    <ul class="text-gray-700 text-lg space-y-3">
+      <li>✅ <strong>Secure</strong> cloud-based storage for patient records</li>
+      <li>✅ <strong>Real-time</strong> access for doctors and healthcare professionals</li>
+      <li>✅ <strong>AI-powered</strong> insights for better decision-making</li>
+      <li>✅ <strong>Easy integration</strong> with existing hospital systems</li>
+    </ul>
+    
+   <!-- Buttons Section -->
+   <div class="flex mt-6">
+    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out" routerLink="/login">
+      Login to Edvak EHR
+    </button>
+  </div>
+</div>
+ 
+  <div class="md:w-1/2 flex justify-center border-r-4 border-blue-600 pr-6">
+    <img src="../../../../images/welcome.jpeg" 
+         alt="EHR System Illustration" 
+         class="w-full max-w-lg rounded-lg shadow-lg">
+  </div>
+
+</div>

@@ -23,7 +23,9 @@ import { ListboxModule } from 'primeng/listbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DrawerModule } from 'primeng/drawer';
 import { LoginComponent } from './Components/login/login.component';
-
+import { HeaderComponent } from './Components/header/header.component';
+import { WelcomeComponent } from "./Components/welcome/welcome.component";
+import { RouterModule } from '@angular/router';
 
 
 
@@ -31,8 +33,9 @@ import { LoginComponent } from './Components/login/login.component';
 @Component({
   selector: 'app-root',
   imports: [
-    LoginComponent,
-   ],
+    HeaderComponent,
+   RouterModule
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
